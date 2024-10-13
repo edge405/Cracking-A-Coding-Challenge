@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocolate Feast - Hackerrank Solution</title>
+    <link rel="stylesheet" href="Chocolate Feast.css"> <!-- Link to CSS -->
+</head>
+<body>
+    <main class="blog-container">
+        <article class="blog-post">
+            <header class="post-header">
+                <h1>Chocolate Feast</h1>
+                <p class="post-intro">Maximize your chocolate consumption with this simple algorithmic solution!</p>
+                <p class="post-intro">Click <a href="https://www.hackerrank.com/challenges/chocolate-feast/problem" target="_blank">here</a> for more detailed problem explanation</p>
+            </header>
+
+            <section class="content">
+                <h2>Problem Summary</h2>
+                <p>In this problem, Little Bobby loves chocolates and wants to maximize the number of chocolates he can eat. He can buy chocolates with his money, and also exchange wrappers for more chocolates.</p>
+
+                <blockquote class="summary">
+                    <strong>Objective:</strong> Find out how many chocolates Bobby can eat with his given money, considering he can exchange wrappers for more chocolates.
+                </blockquote>
+
+                <h2>Example</h2>
+                <p>Let’s break down a sample scenario:</p>
+                <ul>
+                    <li><strong>Bobby has:</strong> <code>n = 10</code> dollars.</li>
+                    <li><strong>The cost of one chocolate:</strong> <code>c = 2</code>.</li>
+                    <li><strong>Bobby can exchange wrappers:</strong> <code>m = 5</code> wrappers for a free chocolate.</li>
+                </ul>
+
+                <h2>Solution Steps</h2>
+                <p>To solve the problem, we can follow these steps:</p>
+                <ol>
+                    <li>Calculate how many chocolates Bobby can initially buy with his money.</li>
+                    <li>Exchange wrappers for additional chocolates.</li>
+                    <li>Repeat the process of exchanging wrappers until Bobby can no longer exchange.</li>
+                </ol>
+
+                <h2>Code Solution</h2>
+                <pre class="code-block"><code>
+public static int chocolateFeast(int n, int c, int m) {
+    int chocolates = n / c;
+    int wrappers = chocolates;
+    while (wrappers >= m) {
+        int freeChocolates = wrappers / m;
+        chocolates += freeChocolates;
+        wrappers = wrappers % m + freeChocolates;
+    }
+    return chocolates;
+}
+                </code></pre>
+                
+                <h2>Test Cases</h2>
+                <pre class="test-cases">
+                <img src="image.png" alt="Test Cases">
+                </pre>
+
+                <section class="final-thoughts">
+                    <h2>Final Thoughts</h2>
+                    <p>This solution is efficient with a time complexity of O(n), making it well-suited for competitive programming. Understanding this approach helps sharpen your algorithmic problem-solving skills.</p>
+                </section>
+            </section>
+        </article>
+
+        <!-- Latest Posts Section -->
+        <section class="latest-posts">
+            <h2>Latest Posts</h2>
+            <ul>
+                <li><a href="#">Solving the "Sherlock and Anagrams" Problem</a></li>
+                <li><a href="#">Dynamic Array: An Optimized Approach</a></li>
+                <li><a href="#">Breaking Down the "New Year Chaos" Challenge</a></li>
+            </ul>
+        </section>
+
+        <!-- Related Posts Section -->
+        <section class="related-posts">
+            <h2>Related Posts</h2>
+            <ul>
+                <li><a href="#">Optimize Chocolate Distribution Algorithm</a></li>
+                <li><a href="#">Maximizing Sweets in a Party Problem</a></li>
+                <li><a href="#">Candy Swap Algorithm Explained</a></li>
+            </ul>
+        </section>
+
+        <footer class="post-footer">
+            <p>Written by <strong>Edjay Lindayao</strong> | October 2024</p>
+        </footer>
+    </main>
+</body>
+</html>

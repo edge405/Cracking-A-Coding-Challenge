@@ -1,0 +1,160 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Merriweather", serif;
+  background-color: #121212;
+  color: white;
+  line-height: 1.6;
+}
+
+h1,
+h2 {
+  color: #00bfa6;
+}
+
+/* Blog Container */
+.blog-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Blog Post Styling */
+.blog-post {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Section */
+.post-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #00bfa6;
+}
+
+.post-header .post-intro {
+  font-size: 1.2rem;
+  color: #0e7f70;
+  margin-bottom: 30px;
+}
+
+/* Content Section */
+.content h2 {
+  font-size: 2rem;
+  margin-top: 40px;
+  color: #00bfa6;
+}
+
+.content p {
+  margin: 20px 0;
+}
+
+.content ul,
+.content ol {
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.content li {
+  margin-bottom: 10px;
+}
+
+/* Code Styling */
+.code-block {
+  background-color: #2e3b4e;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: "Courier New", monospace;
+  margin: 20px 0;
+  font-size: 1rem;
+  overflow-x: auto;
+}
+
+pre {
+  margin: 20px 0;
+}
+
+.test-cases {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+img {
+  width: 600px;
+}
+
+/* Final Thoughts */
+.final-thoughts h2 {
+  margin-top: 40px;
+  color: #00bfa6;
+}
+
+.final-thoughts p {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* Blockquote Styling */
+blockquote.summary {
+  background-color: #1f2733;
+  padding: 15px;
+  border-left: 5px solid #2e3b4e;
+  margin: 20px 0;
+}
+
+/* Latest and Related Posts */
+.latest-posts,
+.related-posts {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+}
+
+.latest-posts h2,
+.related-posts h2 {
+  color: #00bfa6;
+  margin-bottom: 15px;
+}
+
+.latest-posts ul,
+.related-posts ul {
+  list-style-type: none;
+}
+
+.latest-posts li,
+.related-posts li {
+  margin-bottom: 10px;
+}
+
+.latest-posts a,
+.related-posts a {
+  color: #0e7f70;
+  text-decoration: none;
+}
+
+.latest-posts a:hover,
+.related-posts a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.post-footer {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}

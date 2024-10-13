@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif; /* Modern, clean font */
+}
+
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+header {
+  background-color: #1e1e1e;
+  padding: 15px 25px;
+  /* border-bottom: 1px solid #00ffff; */
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  margin: 0px 20px;
+}
+
+header img {
+  width: 55px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.login-btn {
+  background-color: #00bfa6;
+  color: #ffffff;
+  border: none;
+  padding: 0px 20px;
+  font-weight: bolder;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #00997b;
+  transform: translateY(-3px);
+}
+
+.hero {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+.solutions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap; /* Prevent cards from wrapping to a new line */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 50px; /* Adjust the gap between cards */
+  padding: 20px;
+  margin: 50px 0;
+}
+
+.solutions::-webkit-scrollbar {
+  height: 8px; /* Adjust scrollbar height */
+}
+
+.solutions::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 255, 255, 0.315); /* Scrollbar color */
+  border-radius: 20px;
+}
+
+.card {
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  width: 250px; /* Ensure consistent card width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  flex-shrink: 0; /* Prevent shrinking when adding more cards */
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .solutions {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px; /* Reduce gap between cards on small screens */
+  }
+}
+
+/* Footer styles */
+footer {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #333;
+}
+
+footer p {
+  margin-bottom: 10px;
+}
+
+footer a {
+  color: #00bfa6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #00997b;
+  text-decoration: underline;
+}

@@ -1,0 +1,141 @@
+/* Common Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+header {
+  background-color: #1e1e1e;
+  padding: 15px 25px;
+  /* border-bottom: 1px solid #00ffff; */
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  margin: 0px 20px;
+}
+
+header img {
+  width: 55px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.login-btn {
+  background-color: #00bfa6;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #00997b;
+  transform: translateY(-3px);
+}
+
+.hero {
+  text-align: center;
+  margin: 60px 0;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: #00bfa6;
+}
+
+.blogs {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.blog-card {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card h3 {
+  color: #00bfa6;
+  margin-bottom: 15px;
+}
+
+.blog-card p {
+  color: #e0e0e0;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.blog-card a {
+  color: #00bfa6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.blog-card a:hover {
+  color: #00997b;
+}
+
+/* Footer */
+footer {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #333;
+}
+
+footer p {
+  margin-bottom: 10px;
+}
+
+footer a {
+  color: #00bfa6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #00997b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .blog-container {
+    grid-template-columns: 1fr;
+  }
+}
