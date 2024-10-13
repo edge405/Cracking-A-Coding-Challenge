@@ -1,4 +1,6 @@
-# Welcome to Cracking Coding Challenge
+# <p align="center">Welcome to Cracking Coding Challenge</p>
+
+##
 
 This repository contains my blog, which I created as part of my midterm project for class. The assignment required us to think critically about a title and niche for our website blog, and I decided to focus on coding challenges.
 
