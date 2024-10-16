@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Problem 1491: Average Salary Excluding the Minimum and Maximum Salary</title>
+    <link rel="stylesheet" href="blog1.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Problem 1491: Average Salary Excluding the Minimum and Maximum Salary</h1>
+            <p>Dive into an interesting coding problem about salary averages.</p>
+            <p>click <a href="https://leetcode.com/problems/average-salary-excluding-the-minimum-and-maximum-salary/" target="_blank">here </a>for more detailed problem description</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="introduction">
+            <p>
+                In this blog post, we will dive into a simple but interesting coding problem: calculating the average salary of employees while excluding the highest and lowest salaries from the calculation. Let's break down the problem, understand the solution step by step, and provide a beginner-friendly explanation.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Problem Statement</h2>
+            <p>You're given an array of unique integers, <code>salary</code>, where each element represents the salary of an employee. Your task is to compute the average salary of these employees, excluding the minimum and maximum salaries.</p>
+        </section>
+
+        <section class="section">
+            <h2>Input and Output</h2>
+            <h3>Input:</h3>
+            <p>An array of integers representing the salaries, where:</p>
+            <ul>
+                <li>The length of the array is at least 3.</li>
+                <li>All salary values are unique.</li>
+            </ul>
+
+            <h3>Output:</h3>
+            <p>A double representing the average salary, excluding the highest and lowest values.</p>
+        </section>
+
+        <section class="section">
+            <h2>Examples</h2>
+            <h3>Example 1</h3>
+            <p><strong>Input:</strong> <code>salary = [4000, 3000, 1000, 2000]</code></p>
+            <p><strong>Output:</strong> <code>2500.00000</code></p>
+            <p><em>Explanation:</em> The minimum salary is 1000, and the maximum salary is 4000. The average of the remaining salaries (2000 and 3000) is (2000 + 3000) / 2 = 2500.</p>
+
+            <h3>Example 2</h3>
+            <p><strong>Input:</strong> <code>salary = [1000, 2000, 3000]</code></p>
+            <p><strong>Output:</strong> <code>2000.00000</code></p>
+            <p><em>Explanation:</em> The minimum salary is 1000, and the maximum salary is 3000. The average of the remaining salary (2000) is simply 2000 / 1 = 2000.</p>
+        </section>
+
+        <section class="section">
+            <h2>Constraints</h2>
+            <p>- <code>3 ≤ salary.length ≤ 100</code></p>
+            <p>- <code>1000 ≤ salary[i] ≤ 10^6</code></p>
+            <p>- All integers in <code>salary</code> are unique.</p>
+        </section>
+
+        <section class="section">
+            <h2>Solution Explanation</h2>
+            <pre><code>class Solution {
+    public double average(int[] salary) {
+        Arrays.sort(salary); // Step 1: Sort the array
+        double res = 0; // Step 2: Initialize result variable
+        int s = 0; // Step 3: Initialize sum variable
+        for(int i = 1; i < salary.length - 1; i++) { // Step 4: Loop through salaries, excluding min and max
+            s += salary[i]; // Step 5: Sum up the salaries
+        }
+        return (double)s / (salary.length - 2); // Step 6: Calculate the average
+    }
+}</code></pre>
+        </section>
+
+        <section class="section">
+            <h2>Step-by-Step Breakdown</h2>
+            <ol>
+                <li><strong>Sorting the Salaries:</strong> The first step in our solution is to sort the array of salaries. This makes it easy to identify the minimum and maximum salaries, which will be at the beginning and end of the sorted array, respectively.</li>
+                <pre><code>Arrays.sort(salary);</code></pre>
+
+                <li><strong>Initializing Variables:</strong> We declare a variable <code>res</code> to store our result, and <code>s</code> to accumulate the sum of the salaries that we will consider for averaging.</li>
+                <pre><code>double res = 0;
+int s = 0;</code></pre>
+
+                <li><strong>Looping through Salaries:</strong> We loop through the salaries starting from index 1 to <code>salary.length - 1</code> (excluding the first and last elements, which are the minimum and maximum salaries).</li>
+                <pre><code>for(int i = 1; i < salary.length - 1; i++) {
+    s += salary[i];
+}</code></pre>
+
+                <li><strong>Calculating the Average:</strong> Finally, we compute the average by dividing the total sum <code>s</code> by the count of salaries considered for averaging, which is <code>salary.length - 2</code> (since we excluded two salaries).</li>
+                <pre><code>return (double)s / (salary.length - 2);</code></pre>
+            </ol>
+        </section>
+
+        <section class="conclusion">
+            <h2>Conclusion</h2>
+            <p>This solution is efficient and straightforward. By leveraging sorting and a simple loop, we can easily calculate the average salary while excluding the minimum and maximum values. This approach ensures that the calculation is accurate and meets the problem's requirements.</p>
+        </section>
+    </main>
+
+    <div class="container">
+        <div class="comment-section">
+            <h2>Leave a Comment</h2>
+            <textarea rows="4" placeholder="Write your comment here..."></textarea>
+            <div class="like-post">
+                <div>
+                    <button class="like-button">👍Like</button>
+                    <span id="like-count">0 Likes</span>
+                </div>
+                <button type="submit">Post Comment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest Posts Section -->
+    <div class="lr">
+        <section class="latest-posts">
+            <h2>Latest Posts</h2>
+            <ul>
+                <li><a href="#">Solving the "Sherlock and Anagrams" Problem</a></li>
+                <li><a href="#">Dynamic Array: An Optimized Approach</a></li>
+                <li><a href="#">Breaking Down the "New Year Chaos" Challenge</a></li>
+            </ul>
+        </section>
+
+        <!-- Related Posts Section -->
+        <section class="related-posts">
+            <h2>Related Posts</h2>
+            <ul>
+                <li><a href="#">Optimize Chocolate Distribution Algorithm</a></li>
+                <li><a href="#">Maximizing Sweets in a Party Problem</a></li>
+                <li><a href="#">Candy Swap Algorithm Explained</a></li>
+            </ul>
+        </section>
+    </div>
+
+</body>
+</html>

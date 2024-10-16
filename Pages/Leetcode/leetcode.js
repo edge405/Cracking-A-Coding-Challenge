@@ -19,10 +19,11 @@ const leetcodeSolutions = [
     link: "#",
   },
   {
-    title: "Understanding Sliding Window Techniques",
+    title:
+      "Problem 1491: Average Salary Excluding the Minimum and Maximum Salary",
     content:
-      "This post explores the sliding window technique to solve interval-based challenges.",
-    link: "#",
+      "In this blog post, we will dive into a simple but interesting coding problem: calculating the average salary of employees while excluding the highest and lowest salaries from the calculation. Let's break down the problem, understand the solution step by step, and provide a beginner-friendly explanation.",
+    link: "./Blogs/Blog1/blog1.html",
   },
 ];
 

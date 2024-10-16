@@ -4,7 +4,7 @@ const bestPractices = [
     title: "Writing Clean Code: A Comprehensive Guide",
     content:
       "In this guide, you’ll learn how to write clean and readable code that is easy to maintain.",
-    link: "#",
+    link: "./Blogs/Blog1/blog1.html",
   },
   {
     title: "The Art of Refactoring: Keeping Code Flexible",
