@@ -135,7 +135,8 @@ pre code {
   border: 1px solid #2e3b4e;
   background-color: #1e1e1e;
   color: white;
-  font-family: "Merriweather", serif;
+  font-size: 17px;
+  font-style: italic;
 }
 
 .comment-section button {
