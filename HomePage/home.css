@@ -28,10 +28,15 @@ header img {
   height: 42px;
   cursor: pointer;
 }
+#greeting {
+  text-align: center;
+  color: #00ffff;
+  margin: 0 auto;
+}
 
 .login-btn {
   background-color: #00bfa6;
-  color: #ffffff;
+  color: #ffffffec;
   border: none;
   padding: 0px 20px;
   font-weight: bolder;
@@ -107,6 +112,7 @@ header img {
   color: #000;
   font-size: 1.2rem;
   font-weight: bold;
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {

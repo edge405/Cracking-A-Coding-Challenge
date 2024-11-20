@@ -1,7 +1,9 @@
 const loginBtn = document.querySelector(".login-btn");
 
 loginBtn.addEventListener("click", function () {
-  window.location.href = "/Login/login.html";
+  console.log("logout clicked");
+
+  window.location.href = "../Login/logout.php";
 });
 
 document.addEventListener("DOMContentLoaded", () => {
