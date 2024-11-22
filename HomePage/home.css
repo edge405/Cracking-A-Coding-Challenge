@@ -28,21 +28,53 @@ header img {
   height: 42px;
   cursor: pointer;
 }
-#greeting {
-  text-align: center;
-  color: #00ffff;
-  margin: 0 auto;
+
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  width: 15%;
 }
 
+/* icon */
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: end;
+  color: rgb(187, 178, 178); /* Button text color */
+  text-decoration: none; /* Removes underline from the link */
+  cursor: pointer;
+  padding: 3px 5px;
+
+  border-radius: 4px; /* Rounds the corners */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.text:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.icon {
+  margin-right: 2px;
+  margin-bottom: 6px;
+}
+/* icon */
+
 .login-btn {
+  display: inline-flex; /* Changed to inline-flex to center text properly */
+  justify-content: center; /* Centers the text horizontally */
+  align-items: center; /* Centers the text vertically */
   background-color: #00bfa6;
-  color: #ffffffec;
-  border: none;
+  color: #ffffff;
+  text-decoration: none; /* Removes the underline */
   padding: 0px 20px;
-  font-weight: bolder;
+  font-weight: 600;
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
+  height: 40px; /* You can adjust the height based on your design */
 }
 
 .login-btn:hover {
@@ -64,24 +96,181 @@ header img {
   font-size: 1.2rem;
 }
 
+/*
 .solutions {
   display: flex;
-  justify-content: center;
-  flex-wrap: nowrap; /* Prevent cards from wrapping to a new line */
-  overflow-x: auto; /* Enable horizontal scrolling */
-  gap: 50px; /* Adjust the gap between cards */
+  justify-content: start;
+  flex-wrap: nowrap; Prevent cards from wrapping to a new line
+  overflow-x: auto; Enable horizontal scrolling
+  gap: 50px; Adjust the gap between cards
   padding: 20px;
   margin: 50px 0;
-}
+} 
 
 .solutions::-webkit-scrollbar {
-  height: 8px; /* Adjust scrollbar height */
+  height: 8px; Adjust scrollbar height
 }
 
 .solutions::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 255, 255, 0.315); /* Scrollbar color */
+  background-color: rgba(0, 255, 255, 0.315); Scrollbar color
   border-radius: 20px;
 }
+*/
+
+/* Latest section styling */
+
+#latest {
+  margin-top: 2%;
+  margin-left: 2%;
+  color: #00bfa6;
+}
+
+.latest {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Enable snapping effect */
+  gap: 20px; /* Add spacing between cards */
+  padding: 20px;
+  margin: 0px 20px;
+  /* border: white solid 2px; */
+}
+
+.latest-container {
+  display: flex; /* Use flex to arrange cards in a row */
+  gap: 20px; /* Maintain spacing between cards */
+}
+
+.latest-card {
+  flex: 0 0 auto; /* Prevent wrapping and shrinking */
+  width: 300px; /* Consistent width */
+  background-color: #1e1e1e; /* Dark background */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Internal spacing */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  color: #e0e0e0; /* Light text color for readability */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.latest-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7); /* Stronger shadow on hover */
+}
+
+.latest-card h3 {
+  color: #00bfa6; /* Bright teal for headings */
+  font-size: 1.2rem; /* Adjust font size */
+  font-weight: bold; /* Bold text for emphasis */
+  margin-bottom: 10px; /* Spacing below the title */
+}
+
+.latest-card .latest_content {
+  font-size: 0.95rem; /* Slightly smaller text for content */
+  line-height: 1.6; /* Improve readability */
+  margin-bottom: 20px; /* Space below the content */
+  color: #b0b0b0; /* Softer color for secondary text */
+}
+
+.latest-card a {
+  color: #00bfa6; /* Link matches title color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Highlight the link */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.latest-card a:hover {
+  color: #00997b; /* Slightly darker teal on hover */
+}
+
+.latest-card .latest_category {
+  text-align: end;
+}
+
+/* Custom scrollbar styling */
+.latest::-webkit-scrollbar {
+  height: 8px; /* Height of the horizontal scrollbar */
+}
+
+.latest::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 255, 255, 0.4); /* Color of the scrollbar thumb */
+  border-radius: 20px; /* Rounded edges */
+}
+
+.latest::-webkit-scrollbar-track {
+  background-color: transparent; /* Transparent scrollbar track */
+}
+
+/* Scroll snapping for smooth navigation */
+.latest {
+  scroll-snap-type: x mandatory; /* Enable snapping */
+}
+
+.latest-card {
+  scroll-snap-align: start; /* Snap to the start of each card */
+}
+/* latest section */
+
+/* blog section */
+#blogs {
+  margin-top: 2%;
+  margin-left: 2%;
+  color: #00bfa6;
+}
+
+.blogs {
+  display: flex;
+  justify-content: start;
+  padding: 10px 0px 20px 0px;
+  /* border: white solid 2px; */
+}
+
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 30px;
+  width: 100%;
+  padding: 0 20px;
+  gap: 50px;
+  /* border: white solid 2px; */
+}
+
+.blog-card {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+  /* border: white solid 2px; */
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card h3 {
+  color: #00bfa6;
+  margin-bottom: 15px;
+}
+
+.blog-card .blog_content {
+  color: #e0e0e0;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.blog-card a {
+  color: #00bfa6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.blog-card a:hover {
+  color: #00997b;
+}
+
+.blog-card .blog_category {
+  text-align: end;
+}
+/* blog section */
 
 .card {
   display: flex;
@@ -112,7 +301,6 @@ header img {
   color: #000;
   font-size: 1.2rem;
   font-weight: bold;
-  text-decoration: none;
 }
 
 @media (max-width: 768px) {

@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Cracking a Coding Challenge</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="login.css">
 </head>
 
@@ -45,13 +45,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main>
         <section class="hero">
             <h1>Welcome Back</h1>
-            <p>Login to get insights of the solution to the problems</p>
         </section>
         <!-- /Login/greeting.html -->
         <!-- Modern Login Form Section -->
 
         <section class="login-form">
-            <form action="login.php" method="post">
+            <form action="admin.php" method="post">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="you@example.com" required>
@@ -62,8 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <button type="submit" id="submit-btn" class="login-submit-btn">Sign In</button>
             </form>
-            <p class="register-link">new here? <a href="../CreateAccount/create-account.php">Create an account</a>.</p>
-            <p class="register-link">Are you an admin? <a href="admin.php">Login here</a></p>
+            <p class="register-link">Are you a user? <a href="login.php">Login here</a></p>
         </section>
     </main>
 

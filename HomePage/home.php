@@ -19,38 +19,53 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
 </head>
 
 <body>
+
+
     <header>
         <nav>
-            <a href="home.html"><img src="blog-logo.png" alt="logo"></a>
-            <button class="login-btn">Logout</button>
+            <a href='home.php'><img src='blog-logo.png' alt='logo'></a>
+
+            <?php
+            if (isset($_SESSION['admin'])) {
+                echo "
+                <div class='header-container'>
+                    <a href='#' class='button-container'>
+                        <span class='icon'>✏️</span>
+                        <span class='text'>Write</span>
+                    </a>
+                <a href='#' id='logout' class='login-btn'>Logout</a>
+                </div>
+                ";
+            } else {
+                echo "<a href='#' id='logout' class='login-btn'>Logout</a>";
+            }
+            ?>
         </nav>
     </header>
 
-    <main>
-        <!-- <a href="../Login/logout.php">login</a> -->
-        <?php echo '<h1 id="greeting">Welcome ' . $_SESSION['email'] . '!</h1>'; ?>
-        <section class="hero">
 
+    <main>
+        <?php echo "Hello " . $_SESSION['email'] ?>
+        <section class="hero">
             <h1>Cracking a Coding Challenge</h1>
             <p>Dive into a World of Solutions</p>
-
+        </section>
+        <h1 id="latest">Latest Post</h1>
+        <section class="latest">
+            <div class="latest-container" id="latest-container">
+                <!-- Blog posts will be dynamically inserted here -->
+            </div>
         </section>
 
-        <section class="solutions">
-            <div class="card" id="hackerrank-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png" alt="Hackerrank solutions">
-                <h3>Hackerrank solutions</h3>
-            </div>
-
-            <div class="card" id="bestpractices-card">
-                <img src="best-practices.png" alt="Best Practices">
-                <h3>Best Practices</h3>
-            </div>
-            <div class="card" id="leetcode-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="Leetcode solutions">
-                <h3>Leetcode solutions</h3>
+        <h1 id="blogs">Blogs</h1>
+        <!-- Blog Section -->
+        <section class="blogs">
+            <div class="blog-container" id="blog-container">
+                <!-- Blog posts will be dynamically inserted here -->
             </div>
         </section>
+
+
     </main>
     <!-- Footer -->
     <footer>
