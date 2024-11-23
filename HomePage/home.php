@@ -1,5 +1,8 @@
 <?php
 session_start();
+include "../config/db.php";
+include "../model/user.php";
+include "../model/admin.php";
 
 // Check if the user is logged in (optional for additional security)
 if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
@@ -29,7 +32,7 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
             if (isset($_SESSION['admin'])) {
                 echo "
                 <div class='header-container'>
-                    <a href='#' class='button-container'>
+                    <a href='../Blog/CreateBlog/blog-form.html' class='button-container'>
                         <span class='icon'>✏️</span>
                         <span class='text'>Write</span>
                     </a>
@@ -45,7 +48,14 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
 
 
     <main>
-        <?php echo "Hello " . $_SESSION['email'] ?>
+        <h1>mahirap</h1>
+        <?php
+        if (isset($_SESSION['admin'])) {
+            echo "Hello " . fetchAdminUsernameByEmail($conn, $_SESSION['email']);
+        } else {
+            echo "Hello " . fetchUsernameByEmail($conn, $_SESSION['email']);
+        }
+        ?>
         <section class="hero">
             <h1>Cracking a Coding Challenge</h1>
             <p>Dive into a World of Solutions</p>

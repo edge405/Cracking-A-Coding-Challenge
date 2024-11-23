@@ -10,6 +10,10 @@ body {
   color: #e0e0e0;
 }
 
+a {
+  cursor: pointer;
+}
+
 header {
   background-color: #1e1e1e;
   padding: 15px 25px;
@@ -70,7 +74,7 @@ header img {
   color: #ffffff;
   text-decoration: none; /* Removes the underline */
   padding: 0px 20px;
-  font-weight: 600;
+  font-weight: 500;
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;

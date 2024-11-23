@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif; /* Modern, clean font */
+}
+
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* header */
+header {
+  background-color: #1e1e1e;
+  padding: 15px 25px;
+  /* border-bottom: 1px solid #00ffff; */
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  margin: 0px 20px;
+}
+
+header img {
+  width: 55px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  width: 15%;
+}
+
+/* icon */
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: end;
+  color: rgb(187, 178, 178); /* Button text color */
+  text-decoration: none; /* Removes underline from the link */
+  cursor: pointer;
+  padding: 3px 5px;
+
+  border-radius: 4px; /* Rounds the corners */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.text:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.icon {
+  margin-right: 2px;
+  margin-bottom: 6px;
+}
+/* icon */
+
+.login-btn {
+  display: inline-flex; /* Changed to inline-flex to center text properly */
+  justify-content: center; /* Centers the text horizontally */
+  align-items: center; /* Centers the text vertically */
+  background-color: #00bfa6;
+  color: #ffffff;
+  text-decoration: none; /* Removes the underline */
+  padding: 0px 20px;
+  font-weight: 500;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  height: 40px; /* You can adjust the height based on your design */
+}
+
+.login-btn:hover {
+  background-color: #00997b;
+  transform: translateY(-3px);
+}
+
+/* Form section styles */
+main {
+  background-color: #121212;
+  color: #e0e0e0;
+  padding: 20px;
+}
+
+.blog-form-section {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.blog-form-section h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #00bfa6;
+}
+/* header */
+
+/* Form styles */
+.blog-form .form-group {
+  margin-bottom: 20px;
+}
+
+.blog-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.blog-form input,
+.blog-form select,
+.blog-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #2b2b2b;
+  color: #e0e0e0;
+}
+
+.blog-form input::placeholder,
+.blog-form textarea::placeholder {
+  color: #777;
+}
+
+.blog-form select {
+  appearance: none;
+}
+
+.blog-form textarea {
+  resize: vertical;
+}
+
+.blog-form .submit-btn {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #00bfa6;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.blog-form .submit-btn:hover {
+  background-color: #00997b;
+}
+
+/* Footer styles */
+footer {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #333;
+}
+
+footer p {
+  margin-bottom: 10px;
+}
+
+footer a {
+  color: #00bfa6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #00997b;
+  text-decoration: underline;
+}

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../config/db.php';
+include '../model/user.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     try {
-        if (verifyAccount($conn, $email, $password)) {
+        if (verifyAccountUser($conn, $email, $password)) {
             $_SESSION['logged_in'] = true;
             $_SESSION['email'] = $email;
             // $_SESSION['admin'] = true;
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button type="submit" id="submit-btn" class="login-submit-btn">Sign In</button>
             </form>
             <p class="register-link">new here? <a href="../CreateAccount/create-account.php">Create an account</a>.</p>
-            <p class="register-link">Are you an admin? <a href="admin.php">Login here</a></p>
+            <p class="register-link">are you an admin? <a href="admin.php">Login here</a></p>
         </section>
     </main>
 

@@ -156,6 +156,10 @@ footer a:hover {
   text-decoration: underline;
 }
 
+#admin {
+  color: #00bfa6;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .login-form {

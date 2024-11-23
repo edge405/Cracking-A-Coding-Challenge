@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../config/db.php';
+include '../model/admin.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -9,10 +9,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     try {
-        if (verifyAccount($conn, $email, $password)) {
+        if (verifyAccountAdmin($conn, $email, $password)) {
+            $_SESSION['admin'] = true;
             $_SESSION['logged_in'] = true;
             $_SESSION['email'] = $email;
-            // $_SESSION['admin'] = true;
             header("Location: ../HomePage/home.php");
             exit();
         } else {
@@ -45,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main>
         <section class="hero">
             <h1>Welcome Back</h1>
+            <h2 id="admin">Admin</h2>
         </section>
         <!-- /Login/greeting.html -->
         <!-- Modern Login Form Section -->
@@ -61,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <button type="submit" id="submit-btn" class="login-submit-btn">Sign In</button>
             </form>
-            <p class="register-link">Are you a user? <a href="login.php">Login here</a></p>
+            <p class="register-link">are you a user? <a href="login.php">Login here</a></p>
         </section>
     </main>
 

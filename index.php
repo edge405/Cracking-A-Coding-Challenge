@@ -1,6 +1,3 @@
 <?php
 
-include './config/db.php';
-
-
-registerUser($conn, "ed", "ed@me", "ed123");
+header("Location: ./HomePage/home.php");
