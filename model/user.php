@@ -16,15 +16,35 @@ function fetchUsers($conn)
         return $result;
     }
 }
-
-function fetchUsernameByEmail($conn, $email)
+function fetchIdByEmail($conn, $email)
 {
-    $sql = "SELECT username FROM users WHERE email = ?";
-
+    $sql = "SELECT * FROM users WHERE email = ?";
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {
         $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Fetch the result as an associative array
+        if ($row = $result->fetch_assoc()) {
+            return $row['userId']; // Return the userId
+        } else {
+            return null; // No result found
+        }
+    } else {
+        return "Query preparation failed"; // Handle query preparation failure
+    }
+}
+
+function fetchUsernameById($conn, $id)
+{
+    $sql = "SELECT username FROM users WHERE userId = ?";
+
+    $stmt = $conn->prepare($sql);
+
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
 
         $stmt->execute();
 

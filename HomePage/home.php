@@ -51,10 +51,11 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
     <main>
         <!-- <h1>mahirap</h1> -->
         <?php
+        echo $_SESSION['userId'];
         if (isset($_SESSION['admin'])) {
             echo "Hello " . fetchAdminUsernameByEmail($conn, $_SESSION['email']);
         } else {
-            echo "Hello " . fetchUsernameByEmail($conn, $_SESSION['email']);
+            echo "Hello " . fetchUsernameById($conn, $_SESSION['userId']);
         }
         ?>
         <section class="hero">
@@ -99,8 +100,8 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
                         echo "<div class='blog-card'>";
                         echo "<h3>" . htmlspecialchars($row['blog_title']) . "</h3>";
                         echo "<p class='blog_content'>" . htmlspecialchars($row['description']) . "</p>";
-                        // echo "<a href='../Blog/blog.php?id=". htmlspecialchars($row['blogId']) .  "'>Read More</a>";
-                        echo "<a href=''>Read More</a>";
+                        echo "<a href='../Blog/blog.php?id=" . htmlspecialchars($row['blogId']) .  "'>Read More</a>";
+                        // echo "<a href=''>Read More</a>";
                         echo "<p class='blog_category'>" . htmlspecialchars($row['category']) . "</p>";
                         echo "</div>";
                     }

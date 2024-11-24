@@ -7,11 +7,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    $userId = fetchIdByEmail($conn, $email);
 
     try {
         if (verifyAccountUser($conn, $email, $password)) {
             $_SESSION['logged_in'] = true;
             $_SESSION['email'] = $email;
+            $_SESSION['userId'] = $userId;
             // $_SESSION['admin'] = true;
             header("Location: ../HomePage/home.php");
             exit();

@@ -1,5 +1,6 @@
 <?php
 include '../config/db.php';
+include '../model/user.php';
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") { // Corrected comparison operator
     $username = $_POST['username'];
