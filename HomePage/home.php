@@ -3,6 +3,7 @@ session_start();
 include "../config/db.php";
 include "../model/user.php";
 include "../model/admin.php";
+include "../model/blogs.php";
 
 // Check if the user is logged in (optional for additional security)
 if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
@@ -36,11 +37,11 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
                         <span class='icon'>✏️</span>
                         <span class='text'>Write</span>
                     </a>
-                <a href='#' id='logout' class='login-btn'>Logout</a>
+                <a href='../Login/logout.php' id='logout' class='login-btn'>Logout</a>
                 </div>
                 ";
             } else {
-                echo "<a href='#' id='logout' class='login-btn'>Logout</a>";
+                echo "<a href='../Login/logout.php' id='logout' class='login-btn'>Logout</a>";
             }
             ?>
         </nav>
@@ -48,7 +49,7 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
 
 
     <main>
-        <h1>mahirap</h1>
+        <!-- <h1>mahirap</h1> -->
         <?php
         if (isset($_SESSION['admin'])) {
             echo "Hello " . fetchAdminUsernameByEmail($conn, $_SESSION['email']);
@@ -64,6 +65,24 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
         <section class="latest">
             <div class="latest-container" id="latest-container">
                 <!-- Blog posts will be dynamically inserted here -->
+                <?php
+                $result = fetchBlogs($conn);
+
+                if ($result && $result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) { // Fetch associative array
+                        echo "<div class='latest-card'>";
+                        echo "<h3>" . htmlspecialchars($row['blog_title']) . "</h3>";
+                        echo "<p class='latest_content'>" . htmlspecialchars($row['description']) . "</p>";
+                        echo "<a href='../Blog/blog.php?id=" . htmlspecialchars($row['blogId']) .  "'>Read More</a>";
+                        // echo "<a href='#'>Read More</a>";
+                        echo "<p class='latest_category'>" . htmlspecialchars($row['category']) . "</p>";
+                        echo "</div>";
+                    }
+                } else {
+                    echo "<p>No blogs found.</p>";
+                }
+                ?>
+
             </div>
         </section>
 
@@ -72,6 +91,23 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
         <section class="blogs">
             <div class="blog-container" id="blog-container">
                 <!-- Blog posts will be dynamically inserted here -->
+                <?php
+                $result = fetchBlogs($conn);
+
+                if ($result && $result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) { // Fetch associative array
+                        echo "<div class='blog-card'>";
+                        echo "<h3>" . htmlspecialchars($row['blog_title']) . "</h3>";
+                        echo "<p class='blog_content'>" . htmlspecialchars($row['description']) . "</p>";
+                        // echo "<a href='../Blog/blog.php?id=". htmlspecialchars($row['blogId']) .  "'>Read More</a>";
+                        echo "<a href=''>Read More</a>";
+                        echo "<p class='blog_category'>" . htmlspecialchars($row['category']) . "</p>";
+                        echo "</div>";
+                    }
+                } else {
+                    echo "<p>No blogs found.</p>";
+                }
+                ?>
             </div>
         </section>
 
@@ -86,7 +122,7 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
             <a href="https://github.com/edge405" target="_blank">GitHub</a>
         </p>
     </footer>
-    <script src="home.js"></script>
+    <!-- <script src="home.js"></script> -->
 </body>
 
 </html>

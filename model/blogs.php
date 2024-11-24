@@ -27,22 +27,45 @@ function insertBlog($conn, $blog_title, $description, $category, $story)
     }
 }
 
-function fetchBlogs($conn, $blog_id)
+function fetchBlogs($conn)
 {
-    // Prepare the SQL query
-    $stmt = $conn->prepare("SELECT * FROM blogs WHERE blogId = ?");
-    $stmt->bind_param("i", $blog_id); // Bind the integer parameter
+    try {
+        $sql = "SELECT * FROM blogs"; // Simple query
+        $result = $conn->query($sql); // Execute query
 
-    // Execute the query
-    $stmt->execute();
-    $result = $stmt->get_result();
+        if ($result) {
+            return $result; // Return result set
+        } else {
+            throw new Exception("Query failed: " . $conn->error);
+        }
+    } catch (Exception $e) {
+        error_log($e->getMessage()); // Log error
+        return false; // Return false on failure
+    }
+}
 
-    if ($result && $result->num_rows > 0) {
-        // Fetch the blog details as an associative array
-        $blog = $result->fetch_assoc();
-        return json_encode($blog);
-    } else {
-        return json_encode(["error" => "Blog not found"]);
+
+function fetchBlogsById($conn, $blog_id)
+{
+    try {
+        // Prepare the SQL query
+        $stmt = $conn->prepare("SELECT * FROM blogs WHERE blogId = ?");
+        $stmt->bind_param("i", $blog_id); // Bind the integer parameter
+
+        // Execute the query
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result && $result->num_rows > 0) {
+            return $result;
+            // $blog = $result->fetch_assoc();
+            // return json_encode($blog);
+        } else {
+            throw new Exception("Query failed: " . $conn->error);
+        }
+    } catch (Exception $e) {
+        error_log($e->getMessage()); // Log error
+        return false; // Return false on failure
     }
 
     $stmt->close(); // Close the prepared statement
