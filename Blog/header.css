@@ -1,0 +1,73 @@
+header {
+  width: 96.5%;
+  background-color: #1e1e1e;
+
+  padding: 15px 25px;
+  border-bottom: 1px solid black;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  margin: 0px 20px;
+}
+
+header img {
+  width: 55px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  width: 15%;
+}
+
+/* icon */
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: end;
+  color: rgb(187, 178, 178); /* Button text color */
+  text-decoration: none; /* Removes underline from the link */
+  cursor: pointer;
+  padding: 3px 5px;
+
+  border-radius: 4px; /* Rounds the corners */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.text:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.icon {
+  margin-right: 2px;
+  margin-bottom: 6px;
+}
+/* icon */
+
+.login-btn {
+  display: inline-flex; /* Changed to inline-flex to center text properly */
+  justify-content: center; /* Centers the text horizontally */
+  align-items: center; /* Centers the text vertically */
+  background-color: #00bfa6;
+  color: #ffffff;
+  text-decoration: none; /* Removes the underline */
+  padding: 0px 20px;
+  font-weight: 500;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  height: 40px; /* You can adjust the height based on your design */
+}
+
+.login-btn:hover {
+  background-color: #00997b;
+  transform: translateY(-3px);
+}

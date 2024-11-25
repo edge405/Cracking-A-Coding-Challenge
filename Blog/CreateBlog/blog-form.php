@@ -1,11 +1,20 @@
+<?php
+session_start();
+include "../../auth/auth.php";
+
+authentication();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="blog-form.css">
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -15,7 +24,7 @@
                     <span class='icon'>✏️</span>
                     <span class='text'>Write</span>
                 </a>
-            <a href='#' id='logout' class='login-btn'>Logout</a>
+                <a href='../../Login/logout.php' id='logout' class='login-btn'>Logout</a>
             </div>
         </nav>
     </header>
@@ -64,4 +73,5 @@
         </p>
     </footer>
 </body>
+
 </html>

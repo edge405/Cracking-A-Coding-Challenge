@@ -70,3 +70,38 @@ function fetchBlogsById($conn, $blog_id)
 
     $stmt->close(); // Close the prepared statement
 }
+
+function retrieveLikeAndComment($conn, $blogId)
+{
+    try {
+        $sql = "SELECT 
+        b.blog_title,
+        COUNT(DISTINCT l.likeId) AS total_likes,
+        COUNT(DISTINCT c.commentId) AS total_comments
+        FROM 
+            blogs b
+        LEFT JOIN 
+            likes l ON b.blogId = l.blogId
+        LEFT JOIN 
+            comment c ON b.blogId = c.blogId
+        WHERE 
+            b.blogId = ?
+        GROUP BY 
+            b.blogId;
+        ";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $blogId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result) {
+            return $result;
+        } else {
+            throw new Exception("Query failed: " . $conn->error);
+        }
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+        return false;
+    }
+    $stmt->close();
+}

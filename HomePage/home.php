@@ -4,12 +4,10 @@ include "../config/db.php";
 include "../model/user.php";
 include "../model/admin.php";
 include "../model/blogs.php";
+include "../auth/auth.php";
 
-// Check if the user is logged in (optional for additional security)
-if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
-    header("Location: ../Login/login.php"); // Redirect to login page if not logged in
-    exit();
-}
+authentication();
+
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +31,7 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
             if (isset($_SESSION['admin'])) {
                 echo "
                 <div class='header-container'>
-                    <a href='../Blog/CreateBlog/blog-form.html' class='button-container'>
+                    <a href='../Blog/CreateBlog/blog-form.php' class='button-container'>
                         <span class='icon'>✏️</span>
                         <span class='text'>Write</span>
                     </a>

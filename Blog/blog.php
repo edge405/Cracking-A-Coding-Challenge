@@ -4,6 +4,9 @@ include "../model/blogs.php";
 include "../config/db.php";
 include "../model/user.php";
 include "../model/comment.php";
+include "../auth/auth.php";
+
+authentication();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userId = $_SESSION['userId'];
@@ -23,22 +26,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="header.css">
 </head>
 
 <body>
+    <header>
+        <nav>
+            <a href='../HomePage/home.php'><img src='../HomePage/blog-logo.png' alt='logo'></a>
+            <a href='../Login/logout.php' id='logout' class='login-btn'>Logout</a>
+        </nav>
+    </header>
+
 
     <?php
-    echo $_GET['id'];
     if (isset($_GET['id'])) {
         $blog_id = intval($_GET['id']); // Sanitize input
         $result = fetchBlogsById($conn, $blog_id);
+        $res = retrieveLikeAndComment($conn, $blog_id);
+        $totalLikeComment = $res->fetch_assoc();
 
         if ($result && $result->num_rows === 1) {
             $row = $result->fetch_assoc();
-            echo "<h3>" . htmlspecialchars($row['blog_title']) . "</h3>";
-            echo "<p class='description'>" . htmlspecialchars($row['description']) . "</p>";
-            echo "<p class='story'>" . htmlspecialchars($row['story']) . "</p>";
-            echo "<p class='category'>" . htmlspecialchars($row['category']) . "</p>";
+            echo "
+    <div class='container'>
+        <!-- Top Bar -->
+        <div class='top-bar'>
+            <div class='header'>
+                <h1>" .  htmlspecialchars($row['blog_title']) . "</h1>
+            </div>
+            <div class='action-buttons'>
+                <button class='action-btn edit'>✏️ Edit</button>
+                <button class='action-btn delete'>🗑️ Delete</button>
+            </div>
+        </div>
+
+        <!-- Icon Bar -->
+        <div class='icon-bar'>
+            <form action='like.php?id=$blog_id' method='post' class='icon-group'>
+                <input type='hidden' name='action' value='like'>
+                <button type='submit' class='icon like'>❤️</button>
+                <span class='icon-text'>" . htmlspecialchars($totalLikeComment['total_likes']) . " </span>
+            </form>
+
+            <div class='icon-group'>
+                <i class='icon'>💬</i>
+                <span class='icon-text'>" . htmlspecialchars($totalLikeComment['total_comments']) . "</span>
+            </div>
+        </div>
+        <p id='category'>Category: " . htmlspecialchars($row['category']) . "</p>
+        <hr>
+        <p>" . htmlspecialchars($row['description']) . "</p>
+        <hr>
+        <!-- Content -->
+        <div class='content'>
+            <p>" . htmlspecialchars($row['story']) . "</p>
+        </div>
+
+    </div>";
         }
     }
     ?>
@@ -51,10 +95,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 name="comment"
                 placeholder="Add a comment"
                 required />
-            <button type="submit" class="submit-button">Submit</button>
+            <button type="submit" class="submit-button">Send</button>
         </div>
     </form>
-
 
     <div class="comment-section">
         <?php
