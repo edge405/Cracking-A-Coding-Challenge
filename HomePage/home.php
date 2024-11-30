@@ -49,7 +49,6 @@ authentication();
     <main>
         <!-- <h1>mahirap</h1> -->
         <?php
-        echo $_SESSION['userId'];
         if (isset($_SESSION['admin'])) {
             echo "Hello " . fetchAdminUsernameByEmail($conn, $_SESSION['email']);
         } else {

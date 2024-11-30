@@ -36,8 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href='../Login/logout.php' id='logout' class='login-btn'>Logout</a>
         </nav>
     </header>
-
-
     <?php
     if (isset($_GET['id'])) {
         $blog_id = intval($_GET['id']); // Sanitize input
@@ -53,11 +51,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class='top-bar'>
             <div class='header'>
                 <h1>" .  htmlspecialchars($row['blog_title']) . "</h1>
-            </div>
+            </div>";
+            if (isset($_SESSION['admin'])) {
+                echo "
             <div class='action-buttons'>
-                <button class='action-btn edit'>✏️ Edit</button>
-                <button class='action-btn delete'>🗑️ Delete</button>
-            </div>
+                <a href='./CreateBlog/triggerEdit.php?id=$blog_id'>
+                <button class='action-btn edit'>✏️Edit</button>
+                </a>
+                <a href='delete.php?id=$blog_id'>
+                <button class='action-btn delete'>🗑️Delete</button>
+                </a>
+            </div>";
+            }
+            echo "
         </div>
 
         <!-- Icon Bar -->
@@ -79,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <hr>
         <!-- Content -->
         <div class='content'>
-            <p>" . htmlspecialchars($row['story']) . "</p>
+            <p>" . $row['story'] . "</p>
         </div>
 
     </div>";

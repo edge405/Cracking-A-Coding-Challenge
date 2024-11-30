@@ -1,5 +1,4 @@
 <?php
-include "../config/db.php";
 
 function insertBlog($conn, $blog_title, $description, $category, $story)
 {
@@ -14,7 +13,7 @@ function insertBlog($conn, $blog_title, $description, $category, $story)
             echo "<script>alert('new blog created successfully');</script>";
             echo "<script>
             setTimeout(function() {
-                window.location.href = 'blog-form.html';
+                window.location.href = 'blog-form.php';
             }, 100); // Redirect after 0.1 seconds
           </script>";
         } else {
@@ -26,6 +25,48 @@ function insertBlog($conn, $blog_title, $description, $category, $story)
         echo "Prepare failed: (" . $conn->errno . ") " . $conn->error;
     }
 }
+
+function updateBlog($conn, $blogId, $blog_title, $description, $category, $story)
+{
+    $sql = "UPDATE blogs 
+            SET blog_title = ?, description = ?, category = ?, story = ?
+            WHERE blogId = ?     
+    ";
+    if ($stmt = $conn->prepare($sql)) {
+        $stmt->bind_param("ssssi", $blog_title, $description, $category, $story, $blogId);
+        if ($stmt->execute()) {
+            echo "<script>alert('updated blog successfully');</script>";
+        } else {
+            echo "Error: " . $conn->error;
+        }
+
+        $stmt->close();
+    } else {
+        echo "Prepare failed: (" . $conn->errno . ") " . $conn->error;
+    }
+}
+
+function deleteBlog($conn, $blogId)
+{
+    $stmt1 = $conn->prepare("DELETE FROM comment WHERE blogId = ?");
+    if (!$stmt1) {
+        die("Error preparing statement 1: " . $conn->error);
+    }
+    $stmt1->bind_param("i", $blogId);
+    if (!$stmt1->execute()) {
+        die("Error executing statement 1: " . $stmt1->error);
+    }
+
+    $stmt = $conn->prepare("DELETE from blogs WHERE blogId = ?");
+    if (!$stmt) {
+        die("Error preparing statement 2: " . $conn->error);
+    }
+    $stmt->bind_param("i", $blogId);
+    if (!$stmt->execute()) {
+        die("Error executing statement 2: " . $stmt->error);
+    }
+}
+
 
 function fetchBlogs($conn)
 {
