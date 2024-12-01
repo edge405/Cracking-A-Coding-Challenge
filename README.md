@@ -1,32 +1,35 @@
 # <p align="center">Welcome to Cracking Coding Challenge</p>
 
-##
+## About This Blog
 
-This repository contains my blog, which I created as part of my midterm project for class. The assignment required us to think critically about a title and niche for our website blog, and I decided to focus on coding challenges.
+Hi there! Welcome to **Cracking Coding Challenge**, a blog I created as part of a midterm project for my class. The assignment asked us to come up with a meaningful title and niche for our website, and I decided to focus on something close to my heart: coding challenges.
 
-## What Is This Blog About?
+This blog is my way of sharing what I’ve learned while solving coding problems online. I know how overwhelming coding can feel, especially when you’re starting out, but I believe with the right guidance, anyone can improve and feel more confident.
 
-I started this blog because I wanted to share my experiences and insights while tackling online coding problems. Coding can sometimes feel overwhelming, especially for beginners, and I hope this blog can help make it a little easier for anyone trying to improve their skills.
+### Why I Chose This Niche
 
-### Title and Niche
+I titled the blog **Cracking Coding Challenge** because it reflects my goal of breaking down coding problems into simpler, manageable steps. The blog focuses on solving and reviewing coding challenges from popular platforms like HackerRank and LeetCode.
 
-The title of my blog, **Cracking Coding Challenge**, reflects my goal of helping others navigate and solve various coding problems. The niche I’ve chosen is centered around solving and reviewing online coding challenges, specifically focusing on popular platforms like HackerRank and LeetCode. This niche is important to me because coding interviews often include similar challenges, and I believe mastering these problems can significantly boost confidence and skill in programming.
+I chose this niche because coding interviews often involve similar problems. By practicing these challenges, you can build problem-solving skills and gain confidence for real-world coding scenarios.
 
-### What You’ll Find Here
+### What You’ll Find
 
-- **Step-by-Step Solutions**: Each post breaks down a specific coding problem into clear, easy-to-follow steps.
-- **Simple Explanations**: I aim to explain solutions in a way that’s easy to understand.
-  <!-- even if you’re new to coding. -->
-  <!-- - **Analysis of Solutions**: I also include information about time and space complexity to help you understand how efficient our solutions are. -->
+Here’s what I aim to offer through this blog:
 
-### Categories You Can Explore
+- **Clear Step-by-Step Solutions**: I break down each problem into easy-to-follow steps, so it’s approachable for anyone, even if you’re a beginner.
+- **Simplified Explanations**: I make it a point to explain solutions in plain language, free from unnecessary jargon.
+- **Tips for Best Practices**: Learn practical coding techniques to help you write cleaner, more efficient code.
 
-In this blog, you’ll find three main categories:
+### Explore Categories
 
-- **HackerRank**: Here, I share solutions and tips for tackling challenges on HackerRank.
-- **Best Practices**: This section covers useful coding practices that can help you write cleaner and more efficient code.
-- **LeetCode**: Explore popular LeetCode problems, with detailed explanations of how to solve them.
+To make it easier for you to navigate, I’ve organized the blog into these main sections:
 
-### Why Follow This Blog?
+- **HackerRank**: My insights and solutions to challenges on HackerRank.
+- **LeetCode**: Detailed problem-solving guides for LeetCode’s popular questions.
+- **Best Practices**: Tips and tricks to help you improve your coding style and efficiency.
 
-Whether you're just starting your coding journey or looking to sharpen your skills, I believe you'll find something valuable here. I’ll be updating this blog regularly with new problems and solutions, so there's always something new to learn (:
+### Why This Blog Is Worth Following
+
+Whether you’re a complete beginner trying to learn the ropes or someone brushing up on skills for a coding interview, this blog is here to help. I’ll keep it updated with new challenges and insights, so you’ll always find something fresh to learn.
+
+Feel free to explore the finished blog here: [ejlindayao.ct.ws](https://ejlindayao.ct.ws)
