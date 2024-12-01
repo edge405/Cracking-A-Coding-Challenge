@@ -12,6 +12,18 @@ body {
 #category {
   text-align: end;
 }
+#related {
+  color: #00bfa6;
+}
+
+#related-link {
+  color: #00bfa6;
+  transition: color 0.3s;
+}
+
+#related-link:hover {
+  color: #00997b;
+}
 
 /* Container */
 .container {

@@ -86,9 +86,15 @@ header img {
   transform: translateY(-3px);
 }
 
+.greetings {
+  text-align: center;
+  color: #00bfa6;
+}
+
 .hero {
   text-align: center;
   margin: 50px 0;
+  color: #00bfa6;
 }
 
 .hero h1 {
@@ -145,14 +151,17 @@ header img {
 }
 
 .latest-card {
-  flex: 0 0 auto; /* Prevent wrapping and shrinking */
-  width: 300px; /* Consistent width */
-  background-color: #1e1e1e; /* Dark background */
-  border-radius: 10px; /* Rounded corners */
-  padding: 20px; /* Internal spacing */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  color: #e0e0e0; /* Light text color for readability */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex: 0 0 auto;
+  width: 300px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #e0e0e0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .latest-card:hover {
@@ -172,6 +181,10 @@ header img {
   line-height: 1.6; /* Improve readability */
   margin-bottom: 20px; /* Space below the content */
   color: #b0b0b0; /* Softer color for secondary text */
+  max-height: 75px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* border: 1px solid black; */
 }
 
 .latest-card a {
@@ -187,6 +200,7 @@ header img {
 
 .latest-card .latest_category {
   text-align: end;
+  color: #b0b0b0;
 }
 
 /* Custom scrollbar styling */
@@ -238,6 +252,9 @@ header img {
 }
 
 .blog-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   background-color: #1e1e1e;
   border-radius: 10px;
   padding: 30px;
@@ -259,6 +276,10 @@ header img {
   color: #e0e0e0;
   margin-bottom: 20px;
   line-height: 1.5;
+  max-height: 75px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* border: 1px solid black; */
 }
 
 .blog-card a {

@@ -5,6 +5,7 @@ include "../model/user.php";
 include "../model/admin.php";
 include "../model/blogs.php";
 include "../auth/auth.php";
+include "../services/dateConvert.php";
 
 authentication();
 
@@ -50,9 +51,9 @@ authentication();
         <!-- <h1>mahirap</h1> -->
         <?php
         if (isset($_SESSION['admin'])) {
-            echo "Hello " . fetchAdminUsernameByEmail($conn, $_SESSION['email']);
+            echo "<h1 class='greetings'>Welcome Admin!</h1>";
         } else {
-            echo "Hello " . fetchUsernameById($conn, $_SESSION['userId']);
+            echo "<h1 class='greetings'>Welcome " . fetchUsernameById($conn, $_SESSION['userId']) . "!</h1>";
         }
         ?>
         <section class="hero">
@@ -64,16 +65,17 @@ authentication();
             <div class="latest-container" id="latest-container">
                 <!-- Blog posts will be dynamically inserted here -->
                 <?php
-                $result = fetchBlogs($conn);
+                $result = latestPost($conn);
 
                 if ($result && $result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) { // Fetch associative array
                         echo "<div class='latest-card'>";
                         echo "<h3>" . htmlspecialchars($row['blog_title']) . "</h3>";
                         echo "<p class='latest_content'>" . htmlspecialchars($row['description']) . "</p>";
+                        echo "<p class='latest_category'>Category: " . htmlspecialchars($row['category']) . "</p>";
                         echo "<a href='../Blog/blog.php?id=" . htmlspecialchars($row['blogId']) .  "'>Read More</a>";
-                        // echo "<a href='#'>Read More</a>";
-                        echo "<p class='latest_category'>" . htmlspecialchars($row['category']) . "</p>";
+                        echo "<br>";
+                        echo "<p>" . htmlspecialchars(convertBlog($row['created_at'])) . "</p>";
                         echo "</div>";
                     }
                 } else {
@@ -97,9 +99,12 @@ authentication();
                         echo "<div class='blog-card'>";
                         echo "<h3>" . htmlspecialchars($row['blog_title']) . "</h3>";
                         echo "<p class='blog_content'>" . htmlspecialchars($row['description']) . "</p>";
+                        echo "<p class='blog_category'>Category: " . htmlspecialchars($row['category']) . "</p>";
                         echo "<a href='../Blog/blog.php?id=" . htmlspecialchars($row['blogId']) .  "'>Read More</a>";
                         // echo "<a href=''>Read More</a>";
-                        echo "<p class='blog_category'>" . htmlspecialchars($row['category']) . "</p>";
+                        echo "<br>";
+                        echo "<p>" . htmlspecialchars(convertBlog($row['created_at'])) . "</p>
+                        ";
                         echo "</div>";
                     }
                 } else {
@@ -108,7 +113,6 @@ authentication();
                 ?>
             </div>
         </section>
-
 
     </main>
     <!-- Footer -->

@@ -57,9 +57,9 @@ authentication();
                 <select id="category" name="category" required>
                     <option value="" disabled ' . ($row['category'] == '' ? 'selected' : '') . '>Select a category</option>
                     <option value="Coding" ' . ($row['category'] == 'Coding' ? 'selected' : '') . '>Coding</option>
-                    <option value="Leetcode" ' . ($row['category'] == 'Leetcode' ? 'selected' : '') . '>Design</option>
-                    <option value="BestPractices" ' . ($row['category'] == 'BestPractices' ? 'selected' : '') . '>Productivity</option>
-                    <option value="HackerRank" ' . ($row['category'] == 'HackerRank' ? 'selected' : '') . '>Lifestyle</option>
+                    <option value="Leetcode" ' . ($row['category'] == 'Leetcode' ? 'selected' : '') . '>Leetcode</option>
+                    <option value="BestPractices" ' . ($row['category'] == 'BestPractices' ? 'selected' : '') . '>BestPractices</option>
+                    <option value="HackerRank" ' . ($row['category'] == 'HackerRank' ? 'selected' : '') . '>HackerRank</option>
                 </select>
             </div>
 
@@ -89,9 +89,9 @@ authentication();
                 <select id="category" name="category" required>
                     <option value="" disabled selected>Select a category</option>
                     <option value="Coding">Coding</option>
-                    <option value="Design">Design</option>
-                    <option value="Productivity">Productivity</option>
-                    <option value="Lifestyle">Lifestyle</option>
+                    <option value="Leetcode">Leetcode</option>
+                    <option value="BestPractices">BestPractices</option>
+                    <option value="HackerRank">HackerRank</option>
                 </select>
             </div>
 

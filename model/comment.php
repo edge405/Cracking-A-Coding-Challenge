@@ -10,7 +10,6 @@ function insertComment($conn, $userId, $blogId, $comment)
         $stmt->bind_param("iis", $userId, $blogId, $comment);
 
         if ($stmt->execute()) {
-            echo "Comment successfully.";
         } else {
             echo "Error executing query: " . $stmt->error;
         }

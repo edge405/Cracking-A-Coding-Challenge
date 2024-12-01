@@ -48,7 +48,8 @@ function updateBlog($conn, $blogId, $blog_title, $description, $category, $story
 
 function deleteBlog($conn, $blogId)
 {
-    $stmt1 = $conn->prepare("DELETE FROM comment WHERE blogId = ?");
+    // Delete from likes table first
+    $stmt1 = $conn->prepare("DELETE FROM likes WHERE blogId = ?");
     if (!$stmt1) {
         die("Error preparing statement 1: " . $conn->error);
     }
@@ -57,16 +58,26 @@ function deleteBlog($conn, $blogId)
         die("Error executing statement 1: " . $stmt1->error);
     }
 
-    $stmt = $conn->prepare("DELETE from blogs WHERE blogId = ?");
-    if (!$stmt) {
+    // Delete from comment table
+    $stmt2 = $conn->prepare("DELETE FROM comment WHERE blogId = ?");
+    if (!$stmt2) {
         die("Error preparing statement 2: " . $conn->error);
     }
-    $stmt->bind_param("i", $blogId);
-    if (!$stmt->execute()) {
-        die("Error executing statement 2: " . $stmt->error);
+    $stmt2->bind_param("i", $blogId);
+    if (!$stmt2->execute()) {
+        die("Error executing statement 2: " . $stmt2->error);
+    }
+
+    // Delete from blogs table
+    $stmt3 = $conn->prepare("DELETE FROM blogs WHERE blogId = ?");
+    if (!$stmt3) {
+        die("Error preparing statement 3: " . $conn->error);
+    }
+    $stmt3->bind_param("i", $blogId);
+    if (!$stmt3->execute()) {
+        die("Error executing statement 3: " . $stmt3->error);
     }
 }
-
 
 function fetchBlogs($conn)
 {
@@ -145,4 +156,62 @@ function retrieveLikeAndComment($conn, $blogId)
         return false;
     }
     $stmt->close();
+}
+
+function latestPost($conn)
+{
+    try {
+        $sql = "SELECT 
+                blogId, 
+                adminId, 
+                blog_title, 
+                description, 
+                story, 
+                category, 
+                created_at
+                FROM 
+                blogs
+                ORDER BY 
+                created_at DESC
+                LIMIT 5; 
+            ";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result) {
+            return $result;
+        } else {
+            throw new Exception("Query failed: " . $conn->error);
+        }
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+        return false;
+    }
+}
+
+function relatedPost($conn, $blogId)
+{
+    try {
+        $sql = "SELECT *
+                FROM blogs
+                WHERE category = (SELECT category FROM blogs WHERE blogId = ?)
+                AND blogId != ?
+                LIMIT 5  
+                ";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ii", $blogId, $blogId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result) {
+            return $result;
+        } else {
+            throw new Exception("Error: ", $conn->error);
+        }
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+        return false;
+    }
 }

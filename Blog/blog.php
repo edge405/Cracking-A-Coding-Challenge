@@ -5,6 +5,7 @@ include "../config/db.php";
 include "../model/user.php";
 include "../model/comment.php";
 include "../auth/auth.php";
+include "../services/dateConvert.php";
 
 authentication();
 
@@ -81,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <p id='category'>Category: " . htmlspecialchars($row['category']) . "</p>
         <hr>
-        <p>" . htmlspecialchars($row['description']) . "</p>
+        <h3>" . htmlspecialchars($row['description']) . "</h3>
         <hr>
         <!-- Content -->
         <div class='content'>
@@ -123,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class='comment'>
                     <div class='comment-header'>
                         <span class='username'>" . htmlspecialchars($row['username']) . "</span>
-                        <span class='timestamp'>" . htmlspecialchars($row['date']) . "</span>
+                        <span class='timestamp'>" . htmlspecialchars(convert($row['date'])) . "</span>
                     </div>
                     <p class='comment-text'>" . htmlspecialchars($row['comment']) . "</p>
                 </div>";
@@ -132,9 +133,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<p class='no-comments'>No comments yet. Be the first to comment!</p>";
         }
         ?>
-
     </div>
 
+    <h1 id="related">Related Post:</h1>
+    <?php
+    $result = relatedPost($conn, $blogId);
+    if ($result && $result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo '
+            <a id="related-link" href="blog.php?id=' . htmlspecialchars($row['blogId']) . '">' . htmlspecialchars($row['blog_title']) . '</a>
+            ';
+        }
+    }
+
+    ?>
 </body>
 
 </html>
