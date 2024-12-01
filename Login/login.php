@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <footer>
         <p>&copy; 2024 Cracking a Coding Challenge. All Rights Reserved.</p>
         <p>Follow me on
-            <a href="https://www.instagram.com/_csedge" target="_blank">Instagram</a> |
+            <a href="https://www.instagram.com/edge.js" target="_blank">Instagram</a> |
             <a href="https://www.linkedin.com/in/edjay404/" target="_blank">LinkedIn</a> |
             <a href="https://github.com/edge405" target="_blank">GitHub</a>
         </p>
