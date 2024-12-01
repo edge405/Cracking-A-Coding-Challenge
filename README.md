@@ -32,4 +32,4 @@ To make it easier for you to navigate, I’ve organized the blog into these main
 
 Whether you’re a complete beginner trying to learn the ropes or someone brushing up on skills for a coding interview, this blog is here to help. I’ll keep it updated with new challenges and insights, so you’ll always find something fresh to learn.
 
-Feel free to explore the finished blog here: [ejlindayao.ct.ws](https://ejlindayao.ct.ws)
+Feel free to explore the finished blog here: [ejlindayao.ct.ws](http://ejlindayao.ct.ws)
