@@ -2,7 +2,7 @@
 
 ## About This Blog
 
-Hi there! Welcome to **Cracking Coding Challenge**, a blog I created as part of a midterm project for my class. The assignment asked us to come up with a meaningful title and niche for our website, and I decided to focus on something close to my heart: coding challenges.
+Welcome to **Cracking Coding Challenge**, a blog I created as part of a midterm project for my class. The assignment asked us to come up with a meaningful title and niche for our website, and I decided to focus on something close to my heart: coding challenges.
 
 This blog is my way of sharing what I’ve learned while solving coding problems online. I know how overwhelming coding can feel, especially when you’re starting out, but I believe with the right guidance, anyone can improve and feel more confident.
 
