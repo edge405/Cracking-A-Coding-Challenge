@@ -33,7 +33,7 @@ authentication();
 
     <main>
         <section class="blog-form-section">
-            <h1>Create a New Blog</h1>
+
             <?php
             if (isset($_SESSION['edit'])) {
                 $blogId = $_GET['id'];
@@ -41,6 +41,7 @@ authentication();
                 if ($result && $result->num_rows === 1) {
                     $row = $result->fetch_assoc();
                     echo '
+                    <h1>Update Blog</h1>
         <form action="editBlog.php?id=' . $blogId . '" method="POST" class="blog-form">
             <div class="form-group">
                 <label for="title">Title</label>
@@ -73,6 +74,7 @@ authentication();
                 }
             } else {
                 echo '
+                <h1>Create a New Blog</h1>
         <form action="submit-blog.php" method="POST" class="blog-form">
             <div class="form-group">
                 <label for="title">Title</label>

@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <main>
         <section class="hero">
-            <h1>Welcome Back</h1>
+            <h1>Welcome</h1>
             <p>Login to get insights of the solution to the problems</p>
         </section>
         <!-- /Login/greeting.html -->
