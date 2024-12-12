@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>";
             }
             echo "
-        </div>
+        </div> 
 
         <!-- Icon Bar -->
         <div class='icon-bar'>
@@ -135,18 +135,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ?>
     </div>
 
-    <h1 id="related">Related Post:</h1>
-    <?php
-    $result = relatedPost($conn, $blogId);
-    if ($result && $result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo '
-            <a id="related-link" href="blog.php?id=' . htmlspecialchars($row['blogId']) . '">' . htmlspecialchars($row['blog_title']) . '</a>
+    <h1>Related Post:</h1>
+    <div id="related-posts">
+        <?php
+        $result = relatedPost($conn, $blogId);
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo '
+            <a id="related-link" class="related-link" href="blog.php?id=' . htmlspecialchars($row['blogId']) . '">' . htmlspecialchars($row['blog_title']) . '</a><br>
             ';
+            }
         }
-    }
+        ?>
+    </div>
 
-    ?>
 </body>
 
 </html>

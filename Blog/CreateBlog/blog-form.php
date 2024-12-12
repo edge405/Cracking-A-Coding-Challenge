@@ -72,6 +72,7 @@ authentication();
             <button type="submit" class="submit-btn">Update Blog</button>
         </form>';
                 }
+                unset($_SESSION['edit']);
             } else {
                 echo '
                 <h1>Create a New Blog</h1>
