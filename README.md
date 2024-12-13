@@ -1,8 +1,8 @@
-# <p align="center">Welcome to Cracking Coding Challenge</p>
+# Welcome to Cracking Coding Challenge
 
 ## About This Blog
 
-Welcome to **Cracking Coding Challenge**, a blog I created as part of a midterm project for my class. The assignment asked us to come up with a meaningful title and niche for our website, and I decided to focus on something close to my heart: coding challenges.
+Welcome to **Cracking Coding Challenge**, a blog I created as part of a final project for my web course in our school. The assignment asked us to come up with a meaningful title and niche for our website, and I decided to focus on something close to my heart: coding challenges.
 
 This blog is my way of sharing what I’ve learned while solving coding problems online. I know how overwhelming coding can feel, especially when you’re starting out, but I believe with the right guidance, anyone can improve and feel more confident.
 
@@ -31,5 +31,19 @@ To make it easier for you to navigate, I’ve organized the blog into these main
 ### Why This Blog Is Worth Following
 
 Whether you’re a complete beginner trying to learn the ropes or someone brushing up on skills for a coding interview, this blog is here to help. I’ll keep it updated with new challenges and insights, so you’ll always find something fresh to learn.
+
+### Entity-Relationship Diagram (ERD)
+
+To provide a clear structure for the website, here is the ERD representing the database schema of the blog:
+
+![Alt Text](erd.png)
+
+The diagram illustrates the relationships between the main entities:
+
+- **Admin**: Manages the blog content.
+- **Blogs**: Stores the details of each blog post, such as title, description, story, and category.
+- **Users**: Represents individuals interacting with the blog, such as reading, commenting, or liking posts.
+- **Comments**: Tracks user comments on blog posts.
+- **Likes**: Keeps a record of likes on comments by users.
 
 Feel free to explore the finished blog here: [ejlindayao.ct.ws](https://ejlindayao.ct.ws)
