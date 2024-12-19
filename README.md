@@ -44,6 +44,6 @@ The diagram illustrates the relationships between the main entities:
 - **Blogs**: Stores the details of each blog post, such as title, description, story, and category.
 - **Users**: Represents individuals interacting with the blog, such as reading, commenting, or liking posts.
 - **Comments**: Tracks user comments on blog posts.
-- **Likes**: Keeps a record of likes on comments by users.
+- **Likes**: Keeps a record of likes on blogs by users.
 
 Feel free to explore the finished blog here: [ejlindayao.ct.ws](https://ejlindayao.ct.ws)
